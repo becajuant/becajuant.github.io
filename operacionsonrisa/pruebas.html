@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas de animaciones</title>
+    <link rel="stylesheet" href="normalize.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+    body{
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    }
+    body{
+        width: 100%;
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        background-color: #6F7BBF;
+    }
+    .pic{
+        width: 500px;
+        aspect-ratio: 1/1;
+        position: fixed;
+        left: calc(50% - 250px);
+        top: calc(50% - 250px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        font-weight: 900;
+        border-radius: 3%;
+        background-color: #F29F80;
+    }
+    .animateB{
+        animation: changeColorB 5s infinite;
+    }
+    .animate{
+        animation: changeColor 5s infinite;
+    }
+    @keyframes changeColor{
+        0%{background-color: #6F7BBF; color: #F0F0F2;}
+        50%{background-color: #F29F80; color: #0D0C0B;}
+        100%{background-color: #6F7BBF; color: #F0F0F2;}
+    }
+    @keyframes changeColorB{
+        0%{background-color: #F29F80;}
+        50%{background-color: #6F7BBF;}
+        100%{background-color: #F29F80;}
+    }
+</style>
+<body>
+    <div class="pic">S</div>
+    <script>
+        var body = document.querySelector("body")
+        var div = document.querySelector(".pic")
+        function animar(){
+            body.classList.add("animate")
+            div.classList.add("animateB")
+        };
+        div.addEventListener("click", animar);
+        function nAnimar(){
+            body.classList.remove("animate")
+            div.classList.remove("animateB")
+        };
+        body.addEventListener("keydown", nAnimar);
+    </script>
+</body>
+</html>
